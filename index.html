@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="style.css">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Fairuz bin Herman | Data Engineering Portfolio</title>
+    <title>Muhammad Fairuz bin Herman | Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
@@ -13,8 +13,8 @@
 
     <style>
         :root {
-            --bg-color: #FAFAF8;      /* Elegant Nude White */
-            --accent-color: #D4C7B0;  /* Muted Beige */
+            --bg-color: #FAFAF8;
+            --accent-color: #D4C7B0;
             --text-main: #2D2D2D;
             --text-light: #666666;
             --white: #ffffff;
@@ -130,40 +130,32 @@
             transform: translateY(-2px);
         }
 
-        .btn {
-            padding: 14px 35px;
-            background: var(--text-main);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--accent-color);
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Content Section */
+        /* Sections & Grid */
         .section {
-            padding: 100px 5%;
+            padding: 80px 5%;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 4rem;
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
             text-align: center;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .card {
@@ -172,11 +164,23 @@
             border-radius: 24px;
             border: 1px solid rgba(0,0,0,0.02);
             transition: 0.4s;
+            height: 100%;
         }
 
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
         }
 
         footer {
@@ -191,7 +195,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .nav-container { justify-content: center; }
-            .logo-area span { display: none; }
+            .nav-brand-name { display: none; }
         }
     </style>
 </head>
@@ -201,7 +205,7 @@
         <div class="nav-container">
             <div class="logo-area">
                 <img src="https://raw.githubusercontent.com/MFeroz06/MFeroz06.github.io/refs/heads/main/LOGO%20UTM.png" alt="UTM Logo" class="utm-logo">
-                <span style="font-weight: 600; font-size: 0.8rem; color: #800000; letter-spacing: 1px; margin-left:10px;">MUHAMMAD FAIRUZ BIN HERMAN</span>
+                <span style="font-weight: 600; font-size: 0.8rem; color: #800000; letter-spacing: 1px; margin-left:10px;" class="nav-brand-name">MUHAMMAD FAIRUZ BIN HERMAN</span>
             </div>
         </div>
     </nav>
@@ -220,29 +224,42 @@
         <div class="social-links" data-aos="fade-up" data-aos-delay="600">
             <a href="https://www.linkedin.com/in/muhammad-fairuz-bin-herman-2016a4387/" target="_blank">LinkedIn</a>
             <a href="https://github.com/MFeroz06" target="_blank">GitHub</a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mfairuz06@gmail.com">Email</a>
-        </div>
-
-        <div data-aos="fade-up" data-aos-delay="800">
-            <a href="#projects" class="btn">Explore My Work</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mfairuz06@gmail.com" target="_blank">Email</a>
         </div>
     </header>
 
-    <section id="projects" class="section">
-        <h2 class="section-title" data-aos="fade-up">Technical Competencies</h2>
+    <section id="mini-projects" class="section">
+        <h2 class="section-title" data-aos="fade-up">Mini Project</h2>
         <div class="grid">
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <h3>Data Engineering</h3>
-                <p>Designing efficient ETL pipelines and managing large-scale database architectures for optimized data flow.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <h3>Cloud Solutions</h3>
-                <p>Developing scalable cloud environments using modern platforms to support big data analytics.</p>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Machine Learning</h3>
-                <p>Applying statistical models and algorithms to analyze complex datasets and predict future trends.</p>
-            </div>
+            
+            <a href="https://github.com/MFeroz06/SECJ1013-Programming-Technique-I/tree/main/Assignment/Assignment%202" target="_blank" class="card-link" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                    <h3>Basal Metabolic Rate (BMR) Calculator</h3>
+                    <p>A C++ based application designed to calculate health metrics based on user physical attributes. Built for Programming Technique I.</p>
+                </div>
+            </a>
+
+            <a href="https://github.com/MFeroz06/SECR1013-Digital-Logic/tree/main/Project" target="_blank" class="card-link" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                    <h3>Elevator Controller System</h3>
+                    <p>Designed a logic-based controller system simulating elevator operations. Developed as part of the Digital Logic course.</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="projects" class="section" style="padding-top: 20px;">
+        <h2 class="section-title" data-aos="fade-up">Project</h2>
+        <div class="grid" style="grid-template-columns: 1fr;">
+            
+            <a href="https://github.com/MFeroz06/SECP1513-Technology-and-Information-Systems-WBL-/tree/main/Project%20%3A%20Design%20Thinking" target="_blank" class="card-link" data-aos="fade-up" data-aos-delay="300">
+                <div class="card" style="max-width: 600px; margin: 0 auto;">
+                    <h3>UTM Smart Study Space Application</h3>
+                    <p>A conceptual solution designed using Design Thinking methodologies to improve student study environments at UTM.</p>
+                </div>
+            </a>
+
         </div>
     </section>
 
