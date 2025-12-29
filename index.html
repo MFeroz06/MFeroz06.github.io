@@ -39,7 +39,7 @@
         /* Navigation */
         nav {
             padding: 1rem 5%;
-            background: rgba(250, 250, 248, 0.95);
+            background: rgba(250, 250, 248, 0.90);
             backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
@@ -52,7 +52,7 @@
         .utm-logo { height: 40px; width: auto; cursor: pointer; }
         .nav-brand-name { font-weight: 600; font-size: 0.75rem; color: #800000; margin-left: 10px; cursor: pointer; }
 
-        /* Hero Section */
+        /* --- HERO SECTION (UPGRADED) --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -61,24 +61,77 @@
             justify-content: center;
             text-align: center;
             padding: 100px 20px 80px;
+            position: relative;
+            /* Background Pattern */
+            background-image: radial-gradient(#D4C7B0 1.5px, transparent 1.5px);
+            background-size: 30px 30px; 
+        }
+
+        /* Fade out the pattern at the bottom */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 30%;
+            background: linear-gradient(to bottom, transparent, var(--bg-color));
+            pointer-events: none;
         }
 
         .profile-img-container {
-            width: 220px; height: 220px; margin-bottom: 2rem; border-radius: 50%; overflow: hidden;
-            border: 6px solid var(--white); box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            width: 220px; height: 220px; margin-bottom: 2rem; border-radius: 50%; 
+            border: 6px solid var(--white); 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
         }
+        
+        /* Floating Animation for Profile */
+        .profile-wrapper {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
         .profile-img { width: 100%; height: 100%; object-fit: cover; }
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; margin-bottom: 0.5rem; }
-        .degree { font-size: 1.1rem; color: var(--text-light); max-width: 650px; margin-bottom: 2rem; }
-        .social-links { display: flex; gap: 25px; margin-bottom: 2.5rem; }
+        
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 700; 
+            margin-bottom: 0.5rem; 
+            z-index: 2;
+            letter-spacing: -1.5px;
+        }
+        
+        .degree { 
+            font-size: 1.1rem; 
+            color: var(--text-light); 
+            max-width: 650px; 
+            margin-bottom: 2rem; 
+            z-index: 2;
+            font-weight: 500;
+        }
+
+        /* Typewriter Cursor Effect */
+        .typing-text {
+            border-right: 3px solid var(--utm-maroon);
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+        }
+        @keyframes blink { 50% { border-color: transparent; } }
+
+        .social-links { display: flex; gap: 25px; margin-bottom: 2.5rem; z-index: 2; position: relative;}
         .social-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; border-bottom: 2px solid var(--accent-color); padding-bottom: 4px; transition: 0.3s; }
         .social-links a:hover { color: var(--accent-color); transform: translateY(-2px); }
 
         /* Buttons */
-        .btn-group { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; }
+        .btn-group { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; z-index: 2; position: relative; }
         .btn { padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; border: 2px solid transparent; cursor: pointer; }
         .explore-btn { background: var(--text-main); color: var(--white); }
-        .outline-btn { background: transparent; color: var(--text-main); border: 2px solid var(--text-main); }
+        .outline-btn { background: rgba(255,255,255,0.8); color: var(--text-main); border: 2px solid var(--text-main); backdrop-filter: blur(5px); }
         .achieve-btn { background: var(--utm-maroon); color: white; border: 2px solid var(--utm-maroon); }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); opacity: 0.9; }
 
@@ -112,40 +165,15 @@
 
         /* --- ACHIEVEMENTS HUB STYLES --- */
         .hub-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 30px; 
-            margin-top: 40px; 
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; 
         }
-        
         .hub-card {
-            background: var(--white); 
-            padding: 40px 20px; 
-            border-radius: 20px; 
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            cursor: pointer; 
-            border: 2px solid transparent;
-            width: 250px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: var(--white); padding: 40px 20px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border: 2px solid transparent;
+            width: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
-        
         .hub-card:hover { transform: translateY(-5px); border-color: var(--utm-maroon); box-shadow: 0 20px 50px rgba(128, 0, 0, 0.1); }
-        
-        .hub-logo-img {
-            height: 60px;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            margin-bottom: 20px;
-            transition: 0.3s;
-        }
-
+        .hub-logo-img { height: 60px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 20px; transition: 0.3s; }
         .hub-card:hover .hub-logo-img { transform: scale(1.1); }
         .hub-icon { font-size: 2.5rem; margin-bottom: 20px; } 
         .hub-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); line-height: 1.4; }
@@ -161,19 +189,12 @@
         .achieve-content { padding: 35px; }
         
         .achieve-date { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--utm-maroon); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; background: rgba(128, 0, 0, 0.1); padding: 5px 12px; border-radius: 50px; }
-        
         .achieve-highlight { font-size: 2rem; font-weight: 800; color: var(--text-main); line-height: 1.2; margin-bottom: 5px; text-transform: uppercase; letter-spacing: -1px; }
-        
         .highlight-silver { color: #555; }
         .highlight-bronze { color: #8B4513; }
-
         .achieve-sub-title { font-size: 1.4rem; font-weight: 600; color: var(--text-light); margin-bottom: 15px; }
         .achieve-content p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
-
-        .achieve-cat-header {
-            font-size: 1.5rem; color: var(--text-main); margin-top: 60px; margin-bottom: 30px; 
-            border-bottom: 2px solid #eee; padding-bottom: 10px;
-        }
+        .achieve-cat-header { font-size: 1.5rem; color: var(--text-main); margin-top: 60px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
@@ -198,12 +219,15 @@
 
     <div id="home-view" class="page-view active">
         <header class="hero">
-            <div class="profile-img-container" data-aos="zoom-in">
-                <img src="profile.jpg" alt="Muhammad Fairuz bin Herman" class="profile-img">
+            
+            <div class="profile-wrapper">
+                <div class="profile-img-container">
+                    <img src="profile.jpg" alt="Muhammad Fairuz bin Herman" class="profile-img">
+                </div>
             </div>
             
             <h1 data-aos="fade-up">Muhammad Fairuz bin Herman</h1>
-            <p class="degree" data-aos="fade-up" data-aos-delay="100">Bachelor of Computer Science (Data Engineering) with Honours</p>
+            <p class="degree" data-aos="fade-up" data-aos-delay="100"><span class="typing-text">Bachelor of Computer Science (Data Engineering) with Honours</span></p>
 
             <div class="social-links" data-aos="fade-up" data-aos-delay="200">
                 <a href="https://www.linkedin.com/in/muhammad-fairuz-bin-herman-2016a4387/" target="_blank">LinkedIn</a>
@@ -573,7 +597,12 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        // UPDATED AOS SETTINGS for infinite scroll animations
+        AOS.init({ 
+            duration: 800, 
+            once: false, // Ensures animation happens every time
+            mirror: true // Animates out when scrolling past
+        });
 
         function showPage(viewId) {
             document.querySelectorAll('.page-view').forEach(view => {
