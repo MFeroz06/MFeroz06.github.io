@@ -16,6 +16,7 @@
             --text-main: #2D2D2D;
             --text-light: #666666;
             --white: #ffffff;
+            --utm-maroon: #800000;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,7 +58,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 100px 20px 120px; /* Increased bottom padding */
+            padding: 100px 20px 120px;
             position: relative;
         }
 
@@ -104,71 +105,57 @@
             transition: 0.3s;
         }
 
-        .social-links a:hover { color: var(--accent-color); transform: translateY(-2px); }
+        /* Button Container */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
 
-        /* Explore Button - Fixed spacing */
-        .explore-btn {
-            padding: 15px 45px;
-            background-color: var(--text-main);
-            color: var(--white);
+        .btn {
+            padding: 15px 35px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+        }
+
+        .explore-btn {
+            background-color: var(--text-main);
+            color: var(--white);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin-bottom: 40px; /* Force space away from scroll icon */
         }
 
-        .explore-btn:hover {
+        .edu-btn {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--text-main);
+        }
+
+        .btn:hover {
             background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--white);
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(212, 199, 176, 0.4);
         }
 
-        /* Scroll Indicator - Fixed position */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-light);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* Education Section Specific Styling */
+        .edu-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 25px;
+            border-left: 5px solid var(--utm-maroon);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
         }
 
-        .mouse {
-            width: 20px;
-            height: 35px;
-            border: 2px solid var(--text-light);
-            border-radius: 20px;
-            position: relative;
-        }
+        .edu-card h3 { color: var(--utm-maroon); margin-bottom: 5px; }
+        .edu-card .year { font-weight: 600; color: var(--text-light); font-size: 0.9rem; }
 
-        .mouse::before {
-            content: '';
-            width: 3px;
-            height: 6px;
-            background-color: var(--text-light);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 6px;
-            border-radius: 2px;
-            animation: scroll-anim 2s infinite;
-        }
-
-        @keyframes scroll-anim {
-            0% { opacity: 1; top: 6px; }
-            100% { opacity: 0; top: 20px; }
-        }
-
-        /* Grid Sections */
+        /* General Section Styling */
         .section { padding: 100px 5% 60px; max-width: 1100px; margin: 0 auto; }
         .section-title {
             font-size: 1.6rem;
@@ -190,16 +177,12 @@
             height: 100%;
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); border-color: var(--accent-color); }
-        .card h3 { margin-bottom: 15px; font-size: 1.25rem; }
-        .card p { font-size: 0.95rem; color: var(--text-light); }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
         @media (max-width: 768px) {
+            .btn-group { flex-direction: column; width: 100%; align-items: center; }
             .nav-brand-name { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .profile-img-container { width: 180px; height: 180px; }
-            .scroll-indicator { display: none; } /* Hide icon on mobile for more space */
         }
     </style>
 </head>
@@ -228,15 +211,21 @@
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mfairuz06@gmail.com" target="_blank">Email</a>
         </div>
 
-        <div data-aos="fade-up" data-aos-delay="300">
-            <a href="#mini-projects" class="explore-btn">Explore Now</a>
-        </div>
-
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-            <span>Scroll</span>
+        <div class="btn-group" data-aos="fade-up" data-aos-delay="300">
+            <a href="#mini-projects" class="btn explore-btn">Explore Now</a>
+            <a href="#education" class="btn edu-btn">Education</a>
         </div>
     </header>
+
+    <section id="education" class="section">
+        <h2 class="section-title" data-aos="fade-up">Education</h2>
+        <div class="edu-card" data-aos="fade-up">
+            <p class="year">2024 - Present</p>
+            <h3>Universiti Teknologi Malaysia (UTM)</h3>
+            <p style="font-weight: 600;">Bachelor in Computer Science (Data Engineering) with Honours</p>
+            <p style="margin-top: 10px; color: var(--text-light);">Focusing on database management, big data analytics, and software engineering principles.</p>
+        </div>
+    </section>
 
     <section id="mini-projects" class="section">
         <h2 class="section-title" data-aos="fade-up">Mini Project</h2>
