@@ -57,13 +57,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 100px 20px 60px;
+            padding: 100px 20px 120px; /* Increased bottom padding */
             position: relative;
         }
 
-        /* BIGGER IMAGE CONTAINER */
         .profile-img-container {
-            width: 220px; /* Increased size to match name prominence */
+            width: 220px; 
             height: 220px;
             margin-bottom: 2rem;
             border-radius: 50%;
@@ -107,6 +106,7 @@
 
         .social-links a:hover { color: var(--accent-color); transform: translateY(-2px); }
 
+        /* Explore Button - Fixed spacing */
         .explore-btn {
             padding: 15px 45px;
             background-color: var(--text-main);
@@ -117,6 +117,7 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px; /* Force space away from scroll icon */
         }
 
         .explore-btn:hover {
@@ -125,24 +126,25 @@
             box-shadow: 0 15px 30px rgba(212, 199, 176, 0.4);
         }
 
+        /* Scroll Indicator - Fixed position */
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             color: var(--text-light);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .mouse {
-            width: 22px;
-            height: 38px;
+            width: 20px;
+            height: 35px;
             border: 2px solid var(--text-light);
             border-radius: 20px;
             position: relative;
@@ -150,20 +152,20 @@
 
         .mouse::before {
             content: '';
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 6px;
             background-color: var(--text-light);
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            top: 7px;
-            border-radius: 50%;
+            top: 6px;
+            border-radius: 2px;
             animation: scroll-anim 2s infinite;
         }
 
         @keyframes scroll-anim {
-            0% { opacity: 1; top: 7px; }
-            100% { opacity: 0; top: 22px; }
+            0% { opacity: 1; top: 6px; }
+            100% { opacity: 0; top: 20px; }
         }
 
         /* Grid Sections */
@@ -197,6 +199,7 @@
             .nav-brand-name { display: none; }
             .hero h1 { font-size: 2.5rem; }
             .profile-img-container { width: 180px; height: 180px; }
+            .scroll-indicator { display: none; } /* Hide icon on mobile for more space */
         }
     </style>
 </head>
@@ -241,7 +244,7 @@
             <a href="https://github.com/MFeroz06/SECJ1013-Programming-Technique-I/tree/main/Assignment/Assignment%202" target="_blank" class="card-link" data-aos="fade-up">
                 <div class="card">
                     <h3>BMR Calculator</h3>
-                    <p>A C++ based application designed to calculate health metrics based on physical attributes. Developed for Programming Technique I.</p>
+                    <p>A C++ based application designed to calculate health metrics based on physical attributes.</p>
                 </div>
             </a>
             <a href="https://github.com/MFeroz06/SECR1013-Digital-Logic/tree/main/Project" target="_blank" class="card-link" data-aos="fade-up" data-aos-delay="100">
