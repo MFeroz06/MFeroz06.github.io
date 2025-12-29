@@ -110,41 +110,21 @@
         .card { background: var(--white); padding: 40px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.02); transition: 0.4s; height: 100%; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); border-color: var(--accent-color); }
 
-        /* --- ACHIEVEMENTS HUB STYLES (UPDATED FOR LOGOS) --- */
+        /* --- ACHIEVEMENTS HUB STYLES --- */
         .hub-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 30px; 
-            margin-top: 40px; 
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; 
         }
         
         .hub-card {
-            background: var(--white); 
-            padding: 40px 20px; 
-            border-radius: 20px; 
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            cursor: pointer; 
-            border: 2px solid transparent;
-            width: 250px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: var(--white); padding: 40px 20px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border: 2px solid transparent;
+            width: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         
         .hub-card:hover { transform: translateY(-5px); border-color: var(--utm-maroon); box-shadow: 0 20px 50px rgba(128, 0, 0, 0.1); }
         
-        /* LOGO SIZING FIX */
         .hub-logo-img {
-            height: 60px; /* Fixed height for all logos to match UTM */
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            margin-bottom: 20px;
-            transition: 0.3s;
+            height: 60px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 20px; transition: 0.3s;
         }
 
         .hub-card:hover .hub-logo-img { transform: scale(1.1); }
@@ -162,9 +142,21 @@
         .achieve-content { padding: 35px; }
         
         .achieve-date { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--utm-maroon); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; background: rgba(128, 0, 0, 0.1); padding: 5px 12px; border-radius: 50px; }
+        
         .achieve-highlight { font-size: 2rem; font-weight: 800; color: var(--text-main); line-height: 1.2; margin-bottom: 5px; text-transform: uppercase; letter-spacing: -1px; }
+        
+        /* Specific highlights for bronze/silver to vary color if needed */
+        .highlight-silver { color: #555; }
+        .highlight-bronze { color: #8B4513; }
+
         .achieve-sub-title { font-size: 1.4rem; font-weight: 600; color: var(--text-light); margin-bottom: 15px; }
         .achieve-content p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
+
+        /* Category Header for Achievement Pages */
+        .achieve-cat-header {
+            font-size: 1.5rem; color: var(--text-main); margin-top: 60px; margin-bottom: 30px; 
+            border-bottom: 2px solid #eee; padding-bottom: 10px;
+        }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
@@ -370,10 +362,8 @@
                 </div>
                 <div class="achieve-content">
                     <span class="achieve-date">13 December 2025</span>
-                    
                     <h3 class="achieve-highlight">RUNNER UP</h3>
                     <h4 class="achieve-sub-title">Sumayau 3.0 Competition</h4>
-                    
                     <p>Awarded runner-up in Sumayau 3.0, and served as choreographer and group leader for the dance group performing Tarian Rambai.</p>
                 </div>
             </div>
@@ -427,20 +417,113 @@
             </div>
 
             <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center; color: #333;">High School Achievements</h2>
+            
+            <h3 class="achieve-cat-header">State Level</h3>
 
-            <div class="achieve-card" style="border-left-color: #333;">
+            <div class="achieve-card" style="border-left-color: #D4C7B0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Tarian%20Rampaian%20Tradisional%202022.jpeg?raw=true" alt="Tarian Champion" class="achieve-img">
+                </div>
                 <div class="achieve-content">
-                    <span class="achieve-date">2023</span>
-                    <h3>SPM Academic Excellence</h3>
-                    <p>Achieved outstanding results: 2A+, 2A, 4A-, 1B in Sijil Pelajaran Malaysia.</p>
+                    <span class="achieve-date">17 October 2022</span>
+                    <h3 class="achieve-highlight">CHAMPION</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Tarian Rampaian Tradisional</h4>
+                    <p>I was extremely happy to win the championship in my second dance competition. Our team performed a 7-minute dance combining Zapin, Inang, and Joget, making the experience truly memorable.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #A0A0A0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Tarian%20Sempena%20Festival%20Apresiasi%20Seni%20Untuk%20Semua%20(FASUS'2023).jpeg?raw=true" alt="FASUS 2023" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">22 June 2023</span>
+                    <h3 class="achieve-highlight highlight-silver">RUNNER UP</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Tarian Sempena FASUS'2023</h4>
+                    <p>We achieved the runner-up position, placing second after SMK Pantai. It was a fun and memorable experience, where we performed traditional dances including Zapin and Asli.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #8B4513;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Tarian%20Rampaian%20Tradisional%20(2023).jpeg?raw=true" alt="Tarian 2023" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">22 July 2023</span>
+                    <h3 class="achieve-highlight highlight-bronze">3RD PLACE</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Tarian Rampaian Tradisional</h4>
+                    <p>We secured third place in the competition, earning a spot on the podium. Our performance featured the traditional dances Inang and Joget.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #A0A0A0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/FIT%20MALAYSIA%202023%20Pertandingan%20Lompat%20Tali%20Berirama%20(2023).jpeg?raw=true" alt="Fit Malaysia" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">19 August 2023</span>
+                    <h3 class="achieve-highlight highlight-silver">RUNNER UP</h3>
+                    <h4 class="achieve-sub-title">FIT MALAYSIA 2023 Pertandingan Lompat Tali Berirama</h4>
+                    <p>We performed a synchronized jump rope routine that required strong teamwork and coordination, and we achieved second place.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #D4C7B0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Karnival%20Kelab%20Pelancongan%20Pelajar%20(K3P)%20(2023).jpeg?raw=true" alt="K3P 2023" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">10 September 2023</span>
+                    <h3 class="achieve-highlight">CHAMPION</h3>
+                    <h4 class="achieve-sub-title">Karnival Kelab Pelancongan Pelajar (K3P)</h4>
+                    <p>We were tasked with designing an upgraded tourism package based on an existing local package, ensuring it remained logical, attractive to tourists, and reasonably priced. Our proposal successfully met all criteria, and we were awarded the championship. The achievement was especially meaningful as it coincided with my birthday.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #8B4513;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Ihtifal%20Lughawi%20Sekolah%20Menengah%20Acara%20Mimbar%20Daie%20Bahasa%20Mandarin%20(2023).jpeg?raw=true" alt="Mandarin Competition" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">21 September 2023</span>
+                    <h3 class="achieve-highlight highlight-bronze">3RD PLACE</h3>
+                    <h4 class="achieve-sub-title">Mimbar Daie Bahasa Mandarin (Ihtifal Lughawi)</h4>
+                    <p>I participated in a Chinese language competition where I delivered a speech about Rasulullah SAW.</p>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">School Level</h3>
+
+            <div class="achieve-card" style="border-left-color: #A0A0A0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Sudok.jpeg?raw=true" alt="Sudoku" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">18 March 2023</span>
+                    <h3 class="achieve-highlight highlight-silver">RUNNER UP</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Sudoku</h4>
+                    <p>I participated in a Sudoku competition and achieved second place.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #D4C7B0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Video%20Kreatif.jpeg?raw=true" alt="Video Kreatif" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">18 May 2023</span>
+                    <h3 class="achieve-highlight">CHAMPION</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Video Kreatif</h4>
+                    <p>I participated in a cinematic video competition for Raya and won first place.</p>
                 </div>
             </div>
 
             <div class="achieve-card" style="border-left-color: #333;">
-                <div class="achieve-content">
-                    <span class="achieve-date">2019 - 2023</span>
-                    <h3>Co-Curriculum Excellence Award</h3>
-                    <p>Secured a PAJSK score of 8.04 (Grade A) for active involvement in clubs and uniforms.</p>
+                <div class="achieve-content" style="width: 100%;">
+                    <span class="achieve-date">31 October 2023</span>
+                    <h3 class="achieve-highlight" style="font-size: 1.6rem;">AWARD RECIPIENT</h3>
+                    <h4 class="achieve-sub-title">Duta Sahsiah Pembentukan Karakter Karanah Insaniah</h4>
+                    <p>I was genuinely shocked and honored to learn that I had been selected for this award, as I never expected it.</p>
                 </div>
             </div>
 
