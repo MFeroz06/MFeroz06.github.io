@@ -6,7 +6,7 @@
     <title>Muhammad Fairuz bin Herman | Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -31,7 +31,7 @@
 
         nav {
             padding: 1rem 5%;
-            background: rgba(250, 250, 248, 0.9);
+            background: rgba(250, 250, 248, 0.95);
             backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
@@ -58,8 +58,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 100px 20px 120px;
-            position: relative;
+            padding: 100px 20px 80px;
         }
 
         .profile-img-container {
@@ -74,114 +73,78 @@
 
         .profile-img { width: 100%; height: 100%; object-fit: cover; }
 
-        .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 600;
-            letter-spacing: -1.5px;
-            margin-bottom: 0.5rem;
-        }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; margin-bottom: 0.5rem; }
+        .degree { font-size: 1.1rem; color: var(--text-light); max-width: 650px; margin-bottom: 2rem; }
 
-        .degree {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 650px;
-            margin-bottom: 2rem;
-        }
+        .social-links { display: flex; gap: 25px; margin-bottom: 2.5rem; }
+        .social-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; border-bottom: 2px solid var(--accent-color); padding-bottom: 4px; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent-color); transform: translateY(-2px); }
 
-        .social-links {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 2.5rem;
-        }
-
-        .social-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 4px;
-            transition: 0.3s;
-        }
-
-        .btn-group { display: flex; gap: 15px; margin-bottom: 40px; }
-        
-        .btn {
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .explore-btn { background: var(--text-main); color: var(--white); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .edu-btn { background: transparent; color: var(--text-main); border: 2px solid var(--text-main); }
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; border: 2px solid transparent; }
+        .explore-btn { background: var(--text-main); color: var(--white); }
+        .outline-btn { background: transparent; color: var(--text-main); border: 2px solid var(--text-main); }
         .btn:hover { background: var(--accent-color); border-color: var(--accent-color); color: var(--white); transform: translateY(-3px); }
 
-        /* Education Layout */
+        /* Section Layouts */
         .section { padding: 100px 5% 60px; max-width: 1100px; margin: 0 auto; }
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 3.5rem;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-        }
+        .section-title { font-size: 1.8rem; margin-bottom: 3.5rem; text-align: center; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
 
-        .education-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .edu-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 25px;
-            border-left: 6px solid var(--utm-maroon);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            transition: 0.3s;
-        }
-
+        /* Education Styles */
+        .education-timeline { display: flex; flex-direction: column; gap: 30px; max-width: 850px; margin: 0 auto; }
+        .edu-card { background: var(--white); padding: 40px; border-radius: 25px; border-left: 6px solid var(--utm-maroon); box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: 0.3s; }
         .edu-card:hover { transform: scale(1.01); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-
         .edu-card h3 { color: var(--utm-maroon); margin-bottom: 5px; font-size: 1.4rem; }
         .edu-card .year { font-weight: 600; color: var(--text-light); font-size: 0.9rem; text-transform: uppercase; }
-        .edu-card .details { margin-top: 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        
-        .stat-box {
-            background: #fdfdfd;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #f0f0f0;
+        .details { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .stat-box { background: #fdfdfd; padding: 10px 15px; border-radius: 10px; border: 1px solid #f0f0f0; }
+        .stat-label { font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; font-weight: 600; display: block; }
+        .stat-value { font-size: 0.95rem; font-weight: 600; color: var(--text-main); }
+
+        /* SKILLS SECTION STYLES */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
-        .stat-value { font-size: 1rem; font-weight: 600; color: var(--text-main); }
+        .skill-category {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
 
-        /* General Grid */
+        .skill-category h3 { margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        
+        .skill-list { list-style: none; }
+        .skill-item { margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
+        
+        .level-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #f0f0f0;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .creative-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .creative-tag { background: var(--text-main); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; }
+
+        /* Projects Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
-        .card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 25px;
-            border: 1px solid rgba(0,0,0,0.02);
-            transition: 0.4s;
-            height: 100%;
-        }
+        .card { background: var(--white); padding: 40px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.02); transition: 0.4s; height: 100%; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); border-color: var(--accent-color); }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
         @media (max-width: 768px) {
             .nav-brand-name { display: none; }
-            .btn-group { flex-direction: column; width: 100%; }
+            .btn-group { flex-direction: column; width: 100%; padding: 0 20px; }
             .hero h1 { font-size: 2.4rem; }
         }
     </style>
@@ -212,10 +175,63 @@
         </div>
 
         <div class="btn-group" data-aos="fade-up" data-aos-delay="300">
-            <a href="#mini-projects" class="btn explore-btn">Explore Projects</a>
-            <a href="#education" class="btn edu-btn">Education</a>
+            <a href="#mini-projects" class="btn explore-btn">Projects</a>
+            <a href="#skills" class="btn outline-btn">Skills</a>
+            <a href="#education" class="btn outline-btn">Education</a>
         </div>
     </header>
+
+    <section id="skills" class="section">
+        <h2 class="section-title" data-aos="fade-up">Competencies & Skills</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-category" data-aos="fade-up">
+                <h3>💻 Technical</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">C++ <span class="level-tag">Basic</span></li>
+                    <li class="skill-item">Java <span class="level-tag">Basic</span></li>
+                    <li class="skill-item">Git / GitHub <span class="level-tag">Basic</span></li>
+                    <li class="skill-item">Microsoft Office <span class="level-tag">Proficient</span></li>
+                    <li class="skill-item">CapCut <span class="level-tag">Editing</span></li>
+                </ul>
+            </div>
+
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                <h3>🤝 Soft Skills</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Teamwork</li>
+                    <li class="skill-item">Public Speaking</li>
+                    <li class="skill-item">Mentoring</li>
+                    <li class="skill-item">Problem-solving</li>
+                    <li class="skill-item">Communication</li>
+                </ul>
+            </div>
+
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                <h3>🗣️ Languages</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Malay <span class="level-tag" style="background:#D4C7B0; color:#fff;">Native</span></li>
+                    <li class="skill-item">English <span class="level-tag" style="background:#2D2D2D; color:#fff;">Fluent</span></li>
+                    <li class="skill-item">Mandarin <span class="level-tag">Conversational</span></li>
+                    <li class="skill-item" style="flex-direction:column; align-items:flex-start;">
+                        <span>Hokkien</span>
+                        <span style="font-size:0.75rem; color:#666; margin-top:4px;">Listening: Good • Speaking: Basic</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                <h3>🎨 Creative & Performing</h3>
+                <div class="creative-tags">
+                    <span class="creative-tag">Dance</span>
+                    <span class="creative-tag">Choreography</span>
+                    <span class="creative-tag">Photography</span>
+                    <span class="creative-tag">Taekwondo</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <section id="education" class="section">
         <h2 class="section-title" data-aos="fade-up">Academic History</h2>
@@ -226,27 +242,27 @@
                 <h3>Universiti Teknologi Malaysia (UTM)</h3>
                 <p style="font-weight: 600;">Bachelor in Computer Science (Data Engineering) with Honours</p>
                 <div class="details">
-                    <div class="stat-box"><p class="stat-label">Focus</p><p class="stat-value">Data Engineering</p></div>
+                    <div class="stat-box"><span class="stat-label">Focus</span><span class="stat-value">Data Engineering</span></div>
                 </div>
             </div>
 
-            <div class="edu-card" data-aos="fade-up" data-aos-delay="100" style="border-left-color: var(--accent-color);">
+            <div class="edu-card" data-aos="fade-up" style="border-left-color: var(--accent-color);">
                 <p class="year">2023 - 2024</p>
                 <h3>Kolej Matrikulasi Labuan</h3>
                 <p style="font-weight: 600;">Science Stream (Module III)</p>
                 <div class="details">
-                    <div class="stat-box"><p class="stat-label">CGPA</p><p class="stat-value">4.00</p></div>
-                    <div class="stat-box"><p class="stat-label">MUET</p><p class="stat-value">Band 4.0</p></div>
-                    <div class="stat-box"><p class="stat-label">Co-Curriculum</p><p class="stat-value">10%</p></div>
+                    <div class="stat-box"><span class="stat-label">CGPA</span><span class="stat-value">4.00</span></div>
+                    <div class="stat-box"><span class="stat-label">MUET</span><span class="stat-value">Band 4.0</span></div>
+                    <div class="stat-box"><span class="stat-label">Co-Curriculum</span><span class="stat-value">10%</span></div>
                 </div>
             </div>
 
-            <div class="edu-card" data-aos="fade-up" data-aos-delay="200" style="border-left-color: #333;">
+            <div class="edu-card" data-aos="fade-up" style="border-left-color: #333;">
                 <p class="year">2019 - 2023</p>
                 <h3>Sekolah Menengah Kebangsaan Labuan</h3>
                 <div class="details">
-                    <div class="stat-box"><p class="stat-label">SPM Results</p><p class="stat-value">2A+ 2A 4A- 1B</p></div>
-                    <div class="stat-box"><p class="stat-label">PAJSK</p><p class="stat-value">8.04 (A)</p></div>
+                    <div class="stat-box"><span class="stat-label">SPM</span><span class="stat-value">2A+ 2A 4A- 1B</span></div>
+                    <div class="stat-box"><span class="stat-label">PAJSK</span><span class="stat-value">8.04 (A)</span></div>
                 </div>
             </div>
 
@@ -262,7 +278,7 @@
                     <p>C++ application designed for precise health metric calculations.</p>
                 </div>
             </a>
-            <a href="https://github.com/MFeroz06/SECR1013-Digital-Logic/tree/main/Project" target="_blank" class="card-link" data-aos="fade-up">
+            <a href="https://github.com/MFeroz06/SECR1013-Digital-Logic/tree/main/Project" target="_blank" class="card-link" data-aos="fade-up" data-aos-delay="100">
                 <div class="card">
                     <h3>Elevator Controller</h3>
                     <p>Logic-based simulation simulating elevator hardware operations.</p>
