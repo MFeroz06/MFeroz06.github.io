@@ -32,7 +32,8 @@
         .page-view { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
         .page-view.active { display: block; opacity: 1; }
         .sub-page-container { padding-top: 120px; max-width: 1000px; margin: 0 auto; padding-bottom: 80px; padding-left: 20px; padding-right: 20px;}
-        .back-btn { margin-bottom: 30px; display: inline-block; color: var(--text-light); text-decoration: none; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        
+        .back-btn { margin-bottom: 30px; display: inline-flex; align-items: center; gap: 8px; color: var(--text-light); text-decoration: none; font-weight: 600; cursor: pointer; transition: 0.3s; }
         .back-btn:hover { color: var(--utm-maroon); transform: translateX(-5px); }
 
         /* Navigation */
@@ -109,29 +110,28 @@
         .card { background: var(--white); padding: 40px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.02); transition: 0.4s; height: 100%; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); border-color: var(--accent-color); }
 
-        /* --- ACHIEVEMENTS PAGE STYLES --- */
-        .achievement-card { display: flex; align-items: center; background: var(--white); padding: 30px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 5px solid #FFD700; }
-        .trophy-icon { font-size: 2rem; margin-right: 25px; background: #FFF9E6; padding: 15px; border-radius: 50%; }
-        .achieve-content h3 { font-size: 1.2rem; margin-bottom: 5px; }
-        .achieve-content p { color: var(--text-light); font-size: 0.95rem; }
+        /* --- ACHIEVEMENTS HUB STYLES --- */
+        .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .hub-card {
+            background: var(--white); padding: 50px 30px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border: 2px solid transparent;
+        }
+        .hub-card:hover { transform: translateY(-5px); border-color: var(--utm-maroon); box-shadow: 0 20px 50px rgba(128, 0, 0, 0.1); }
+        .hub-icon { font-size: 3rem; margin-bottom: 20px; }
+        .hub-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
 
-        /* --- ACTIVITIES GALLERY STYLES --- */
-        .category-header { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: var(--text-main); padding-left: 10px; border-left: 4px solid var(--utm-maroon); margin-top: 40px; }
-        .category-header:first-of-type { margin-top: 0; }
-        
-        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .activity-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .activity-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-        
-        .activity-img-wrapper { height: 220px; overflow: hidden; position: relative; }
-        .activity-img-wrapper::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: #f0f0f0; z-index: 0; }
-        .activity-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; position: relative; z-index: 1; }
-        .activity-card:hover .activity-img { transform: scale(1.05); }
-        
-        .activity-caption { padding: 25px; }
-        .activity-caption h3 { font-size: 1.1rem; margin-bottom: 8px; }
-        .activity-caption p { color: var(--text-light); font-size: 0.9rem; line-height: 1.5; }
-        .activity-date { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent-color); margin-bottom: 5px; text-transform: uppercase; }
+        /* --- ACHIEVEMENT DETAIL CARDS (WITH IMAGE) --- */
+        .achieve-card { 
+            background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            margin-bottom: 40px; border-left: 5px solid #FFD700;
+        }
+        .achieve-img-wrapper { height: 250px; overflow: hidden; position: relative; }
+        .achieve-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .achieve-card:hover .achieve-img { transform: scale(1.05); }
+        .achieve-content { padding: 30px; }
+        .achieve-date { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--utm-maroon); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .achieve-content h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .achieve-content p { color: var(--text-light); }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
@@ -139,8 +139,6 @@
             .nav-brand-name { display: none; }
             .btn-group { flex-direction: column; width: 100%; padding: 0 20px; }
             .hero h1 { font-size: 2.4rem; }
-            .achievement-card { flex-direction: column; text-align: center; }
-            .trophy-icon { margin-right: 0; margin-bottom: 15px; }
         }
     </style>
 </head>
@@ -156,7 +154,6 @@
     </nav>
 
     <div id="home-view" class="page-view active">
-        
         <header class="hero">
             <div class="profile-img-container" data-aos="zoom-in">
                 <img src="profile.jpg" alt="Muhammad Fairuz bin Herman" class="profile-img">
@@ -175,8 +172,7 @@
                 <a href="#mini-projects" class="btn explore-btn">Projects</a>
                 <a href="#skills" class="btn outline-btn">Skills</a>
                 <a href="#education" class="btn outline-btn">Education</a>
-                <button onclick="showPage('activities')" class="btn outline-btn">📸 Activities</button>
-                <button onclick="showPage('achievements')" class="btn achieve-btn">🏆 Achievements</button>
+                <button onclick="showPage('achievements-hub')" class="btn achieve-btn">🏆 Achievements</button>
             </div>
         </header>
 
@@ -290,100 +286,111 @@
         <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
     </div>
 
-    <div id="activities-view" class="page-view">
+    <div id="achievements-hub" class="page-view">
         <div class="sub-page-container">
             <div onclick="showPage('home')" class="back-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                 Back to Home
             </div>
 
-            <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">📸 Activities & Involvement</h2>
-            
-            <h3 class="category-header">University Level</h3>
-            <div class="activity-grid">
-                <div class="activity-card">
-                    <div class="activity-img-wrapper">
-                        <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Sumayau%201.jpeg?raw=true" alt="Sumayau 3.0" class="activity-img">
-                    </div>
-                    <div class="activity-caption">
-                        <span class="activity-date">13 December 2025</span>
-                        <h3>Runner up Sumayau 3.0</h3>
-                        <p>Achieved Runner-up position in the Sumayau 3.0 competition, demonstrating cultural performance excellence.</p>
-                    </div>
-                </div>
-            </div>
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">🏆 Select Institution</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">Choose a category to view specific achievements and awards.</p>
 
-            <h3 class="category-header">Pre-University & High School</h3>
-            <div class="activity-grid">
-                
-                <div class="activity-card">
-                    <div class="activity-img-wrapper">
-                        <img src="https://via.placeholder.com/400x300?text=KML+Taekwondo" alt="KML Taekwondo" class="activity-img">
-                    </div>
-                    <div class="activity-caption">
-                        <span class="activity-date">2023</span>
-                        <h3>KML Taekwondo Tournament</h3>
-                        <p>Represented Kolej Matrikulasi Labuan in the annual martial arts tournament.</p>
-                    </div>
+            <div class="hub-grid">
+                <div class="hub-card" onclick="showPage('achieve-utm')">
+                    <div class="hub-icon">🎓</div>
+                    <div class="hub-title">Universiti Teknologi Malaysia</div>
                 </div>
 
-                <div class="activity-card">
-                    <div class="activity-img-wrapper">
-                        <img src="https://via.placeholder.com/400x300?text=Cultural+Dance" alt="Cultural Dance" class="activity-img">
-                    </div>
-                    <div class="activity-caption">
-                        <span class="activity-date">2019 - 2024</span>
-                        <h3>Cultural Dance Performance</h3>
-                        <p>Active participation in choreography and traditional dance performances.</p>
-                    </div>
+                <div class="hub-card" onclick="showPage('achieve-kml')">
+                    <div class="hub-icon">🔬</div>
+                    <div class="hub-title">Kolej Matrikulasi Labuan</div>
                 </div>
 
-                <div class="activity-card">
-                    <div class="activity-img-wrapper">
-                        <img src="https://via.placeholder.com/400x300?text=Photography" alt="Photography" class="activity-img">
-                    </div>
-                    <div class="activity-caption">
-                        <span class="activity-date">Ongoing</span>
-                        <h3>Event Photography</h3>
-                        <p>Captured official photos for various school and college level events.</p>
-                    </div>
+                <div class="hub-card" onclick="showPage('achieve-smk')">
+                    <div class="hub-icon">🏫</div>
+                    <div class="hub-title">Sekolah Menengah Kebangsaan Labuan</div>
                 </div>
-
             </div>
         </div>
         <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
     </div>
 
-    <div id="achievements-view" class="page-view">
+    <div id="achieve-utm" class="page-view">
         <div class="sub-page-container">
-            <div onclick="showPage('home')" class="back-btn">
+            <div onclick="showPage('achievements-hub')" class="back-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-                Back to Home
+                Back to Selection
             </div>
 
-            <h2 style="font-size: 2.2rem; margin-bottom: 40px; text-align: center;">🏆 Honours & Awards</h2>
+            <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center; color: var(--utm-maroon);">UTM Achievements</h2>
 
-            <div class="achievement-card">
-                <div class="trophy-icon">🥇</div>
+            <div class="achieve-card">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Sumayau%201.jpeg?raw=true" alt="Sumayau 3.0" class="achieve-img">
+                </div>
                 <div class="achieve-content">
-                    <h3>Dean's List Award (Example)</h3>
-                    <p>Awarded for achieving exceptional academic performance (CGPA 4.00) during Matriculation studies.</p>
+                    <span class="achieve-date">13 December 2025</span>
+                    <h3>Runner up Sumayau 3.0</h3>
+                    <p>Awarded Runner-up position in the prestigious Sumayau 3.0 cultural performance competition held at University level.</p>
                 </div>
             </div>
 
-            <div class="achievement-card">
-                <div class="trophy-icon">💻</div>
+        </div>
+        <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
+    </div>
+
+    <div id="achieve-kml" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('achievements-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Selection
+            </div>
+
+            <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center; color: var(--accent-color);">Matriculation Achievements</h2>
+
+            <div class="achieve-card" style="border-left-color: var(--accent-color);">
                 <div class="achieve-content">
-                    <h3>Hackathon Participant</h3>
-                    <p>Participated in University Level Coding Hackathon focused on Data Solutions.</p>
+                    <span class="achieve-date">2023 - 2024</span>
+                    <h3>Dean's List Award (4.00 Flat)</h3>
+                    <p>Achieved a perfect CGPA of 4.00 in both Semester 1 and Semester 2 (PSPM I & II).</p>
                 </div>
             </div>
 
-            <div class="achievement-card" style="border-left-color: #C0C0C0;">
-                <div class="trophy-icon">🥈</div>
+            <div class="achieve-card" style="border-left-color: var(--accent-color);">
                 <div class="achieve-content">
-                    <h3>Secondary School Excellence Award</h3>
-                    <p>Recognized for outstanding PAJSK (8.04) and academic leadership at SMK Labuan.</p>
+                    <span class="achieve-date">2023</span>
+                    <h3>Martial Arts Participation</h3>
+                    <p>Active participant in KML Taekwondo Tournament representing the college team.</p>
+                </div>
+            </div>
+
+        </div>
+        <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
+    </div>
+
+    <div id="achieve-smk" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('achievements-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Selection
+            </div>
+
+            <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center; color: #333;">High School Achievements</h2>
+
+            <div class="achieve-card" style="border-left-color: #333;">
+                <div class="achieve-content">
+                    <span class="achieve-date">2023</span>
+                    <h3>SPM Academic Excellence</h3>
+                    <p>Achieved outstanding results: 2A+, 2A, 4A-, 1B in Sijil Pelajaran Malaysia.</p>
+                </div>
+            </div>
+
+            <div class="achieve-card" style="border-left-color: #333;">
+                <div class="achieve-content">
+                    <span class="achieve-date">2019 - 2023</span>
+                    <h3>Co-Curriculum Excellence Award</h3>
+                    <p>Secured a PAJSK score of 8.04 (Grade A) for active involvement in clubs and uniforms.</p>
                 </div>
             </div>
 
@@ -402,13 +409,12 @@
             });
 
             setTimeout(() => {
-                 if(viewId === 'home') {
-                    document.getElementById('home-view').classList.add('active');
-                } else if (viewId === 'achievements') {
-                    document.getElementById('achievements-view').classList.add('active');
-                } else if (viewId === 'activities') {
-                    document.getElementById('activities-view').classList.add('active');
-                }
+                 document.getElementById(viewId === 'home' ? 'home-view' : 
+                                       viewId === 'achievements-hub' ? 'achievements-hub' :
+                                       viewId === 'achieve-utm' ? 'achieve-utm' :
+                                       viewId === 'achieve-kml' ? 'achieve-kml' :
+                                       viewId === 'achieve-smk' ? 'achieve-smk' : 'home-view').classList.add('active');
+                
                 document.querySelector('.page-view.active').style.opacity = 1;
             }, 50);
             window.scrollTo(0,0);
