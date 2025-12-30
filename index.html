@@ -39,7 +39,7 @@
         /* Navigation */
         nav {
             padding: 1rem 5%;
-            background: rgba(250, 250, 248, 0.90);
+            background: rgba(250, 250, 248, 0.95);
             backdrop-filter: blur(12px);
             position: fixed;
             width: 100%;
@@ -52,7 +52,7 @@
         .utm-logo { height: 40px; width: auto; cursor: pointer; }
         .nav-brand-name { font-weight: 600; font-size: 0.75rem; color: #800000; margin-left: 10px; cursor: pointer; }
 
-        /* --- HERO SECTION (UPGRADED) --- */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -62,12 +62,10 @@
             text-align: center;
             padding: 100px 20px 80px;
             position: relative;
-            /* Background Pattern */
             background-image: radial-gradient(#D4C7B0 1.5px, transparent 1.5px);
             background-size: 30px 30px; 
         }
 
-        /* Fade out the pattern at the bottom */
         .hero::after {
             content: '';
             position: absolute;
@@ -85,42 +83,20 @@
             overflow: hidden;
         }
         
-        /* Floating Animation for Profile */
-        .profile-wrapper {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+        .profile-wrapper { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
         .profile-img { width: 100%; height: 100%; object-fit: cover; }
         
         .hero h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); 
-            font-weight: 700; 
-            margin-bottom: 0.5rem; 
-            z-index: 2;
-            letter-spacing: -1.5px;
+            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 0.5rem; z-index: 2; letter-spacing: -1.5px;
         }
         
         .degree { 
-            font-size: 1.1rem; 
-            color: var(--text-light); 
-            max-width: 650px; 
-            margin-bottom: 2rem; 
-            z-index: 2;
-            font-weight: 500;
+            font-size: 1.1rem; color: var(--text-light); max-width: 650px; margin-bottom: 2rem; z-index: 2; font-weight: 500;
         }
 
-        /* Typewriter Cursor Effect */
-        .typing-text {
-            border-right: 3px solid var(--utm-maroon);
-            padding-right: 5px;
-            animation: blink 0.75s step-end infinite;
-        }
+        .typing-text { border-right: 3px solid var(--utm-maroon); padding-right: 5px; animation: blink 0.75s step-end infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
 
         .social-links { display: flex; gap: 25px; margin-bottom: 2.5rem; z-index: 2; position: relative;}
@@ -583,11 +559,29 @@
 
             <h2 style="font-size: 2rem; margin-bottom: 40px; text-align: center;">Other Honours & Awards</h2>
 
-            <div class="achieve-card" style="border-left-color: #999;">
+            <h3 class="achieve-cat-header">Anak Seni Wilayah Persekutuan (ASWILA)</h3>
+            <div class="achieve-card" style="border-left-color: #A0A0A0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Tarian%20Rampaian%20Belia%202022.jpeg?raw=true" alt="ASWILA 2022" class="achieve-img">
+                </div>
                 <div class="achieve-content">
-                    <span class="achieve-date">Various Dates</span>
-                    <h3>External Competitions</h3>
-                    <p>Participated in various external events and community service programs.</p>
+                    <span class="achieve-date">20 August 2022</span>
+                    <h3 class="achieve-highlight highlight-silver">RUNNER UP</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Tarian Rampaian Belia Malaysia</h4>
+                    <p>This was my first time participating in a dance competition when I was in Form 4. I performed traditional dances including Inang, Joget, and Zapin.</p>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">Mahligai Anak Seni Wilayah Persekutuan Labuan (MAS)</h3>
+            <div class="achieve-card" style="border-left-color: #D4C7B0;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/Pertandingan%20Tarian%20Rampaian%20Tradisional%20Anjuran%20Pertubuhan%20Penggiat%20Seni%20Labuan.jpeg?raw=true" alt="MAS Champion" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">30 June 2024</span>
+                    <h3 class="achieve-highlight">CHAMPION</h3>
+                    <h4 class="achieve-sub-title">Pertandingan Tarian Rampaian Tradisional Anjuran Pertubuhan Penggiat Seni Labuan (2024)</h4>
+                    <p>Tomorrow is the day I will leave for Kolej Matrikulasi Labuan, and these moments will be happy memories for me before starting my journey at KML.</p>
                 </div>
             </div>
 
@@ -597,12 +591,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // UPDATED AOS SETTINGS for infinite scroll animations
-        AOS.init({ 
-            duration: 800, 
-            once: false, // Ensures animation happens every time
-            mirror: true // Animates out when scrolling past
-        });
+        AOS.init({ duration: 800, once: false, mirror: true });
 
         function showPage(viewId) {
             document.querySelectorAll('.page-view').forEach(view => {
