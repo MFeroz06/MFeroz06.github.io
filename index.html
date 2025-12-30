@@ -115,7 +115,7 @@
         .section { padding: 100px 5% 60px; max-width: 1100px; margin: 0 auto; }
         .section-title { font-size: 1.8rem; margin-bottom: 3.5rem; text-align: center; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
 
-        /* --- ABOUT ME SECTION (NEW) --- */
+        /* --- ABOUT ME SECTION --- */
         .about-grid {
             background: var(--white);
             padding: 40px;
@@ -203,7 +203,7 @@
         .activity-list-item:last-child { border-bottom: none; }
         .activity-list-item::before { content: '•'; color: var(--utm-maroon); font-weight: bold; font-size: 1.2rem; margin-right: 12px; line-height: 1.2; }
 
-        /* --- POSITIONS (NEW STYLES) --- */
+        /* --- POSITIONS (TIMELINE STYLES) --- */
         
         /* 1. The Menu (Wide Bars) */
         .position-menu-container {
@@ -213,89 +213,46 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        
         .position-nav-item {
-            display: flex;
-            align-items: center;
-            padding: 25px 30px;
-            background: var(--white);
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-left: 8px solid transparent;
+            display: flex; align-items: center; padding: 25px 30px; background: var(--white);
+            border-radius: 15px; cursor: pointer; transition: all 0.3s ease; border-left: 8px solid transparent;
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
         }
-        
-        /* Different borders for visual distinction */
         .pos-utm { border-left-color: var(--utm-maroon); }
         .pos-kml { border-left-color: var(--accent-color); }
         .pos-smk { border-left-color: #333; }
         .pos-other { border-left-color: #999; }
-
         .position-nav-item:hover { transform: translateX(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        
         .pos-icon { font-size: 2rem; margin-right: 25px; }
         .pos-logo-img { height: 50px; width: auto; object-fit: contain; margin-right: 25px; }
         .pos-title { font-size: 1.3rem; font-weight: 700; color: var(--text-main); }
         .pos-arrow { margin-left: auto; color: var(--text-light); font-size: 1.5rem; }
 
-        /* 2. The Timeline Content (For Details Pages) */
-        .timeline-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-        
-        /* Vertical Line */
+        /* 2. The Timeline Content */
+        .timeline-container { position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0; }
         .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: #f0f0f0;
-            top: 0;
-            bottom: 0;
-            left: 20px;
-            margin-left: -2px;
+            content: ''; position: absolute; width: 4px; background-color: #f0f0f0;
+            top: 0; bottom: 0; left: 20px; margin-left: -2px;
         }
-
         .timeline-item {
-            position: relative;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-left: 50px; /* Space for the line */
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            position: relative; background: white; border-radius: 15px; padding: 30px;
+            margin-left: 50px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             border: 1px solid rgba(0,0,0,0.02);
         }
-
-        /* The Dot on the line */
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            left: -58px; /* Position on the line */
-            top: 35px;
-            background: white;
-            border: 4px solid var(--utm-maroon);
-            border-radius: 50%;
-            z-index: 1;
+            content: ''; position: absolute; width: 16px; height: 16px; left: -58px; top: 35px;
+            background: white; border: 4px solid var(--utm-maroon); border-radius: 50%; z-index: 1;
         }
-
         .timeline-role-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 5px; }
         .timeline-org { font-size: 0.95rem; font-weight: 600; color: var(--text-light); margin-bottom: 10px; display: block; }
         .timeline-date { 
-            display: inline-block; 
-            padding: 4px 12px; 
-            background: #f5f5f5; 
-            border-radius: 50px; 
-            font-size: 0.8rem; 
-            font-weight: 600; 
-            color: #555; 
-            margin-bottom: 15px; 
+            display: inline-block; padding: 4px 12px; background: #f5f5f5; border-radius: 50px; 
+            font-size: 0.8rem; font-weight: 600; color: #555; margin-bottom: 15px; 
         }
+        /* Style for simple lists inside timeline */
+        .role-list { margin-top: 10px; list-style-type: none; }
+        .role-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
+        .role-list li::before { content: '▸'; position: absolute; left: 0; color: var(--utm-maroon); }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
@@ -534,10 +491,21 @@
             <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--utm-maroon);">UTM Roles</h2>
             <div class="timeline-container">
                 <div class="timeline-item" style="border-left-color: var(--utm-maroon);">
-                    <span class="timeline-date">2025 - Present</span>
-                    <h3 class="timeline-role-title">Committee Member</h3>
-                    <span class="timeline-org">Student Residential College Committee (JKM)</span>
-                    <p>Responsible for welfare and activity planning for students in Kolej Tun Razak.</p>
+                    <span class="timeline-date">2025 - 2026</span>
+                    <h3 class="timeline-role-title">Multimedia Committee Member</h3>
+                    <span class="timeline-org">Senimas KOLEJ TUN RAZAK</span>
+                </div>
+                
+                <div class="timeline-item" style="border-left-color: var(--utm-maroon);">
+                    <span class="timeline-date">2024 - Present</span>
+                    <h3 class="timeline-role-title">Active Member</h3>
+                    <span class="timeline-org">Various Organizations</span>
+                    <ul class="role-list">
+                        <li>GASABAYU</li>
+                        <li>Citra Daksina</li>
+                        <li>GASARI</li>
+                        <li>PERMAS</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -551,12 +519,25 @@
             </div>
             <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--accent-color);">Matriculation Roles</h2>
             <div class="timeline-container">
-                <div class="timeline-item">
+                
+                <div class="timeline-item" style="border-left-color: var(--accent-color);">
                     <span class="timeline-date">2023 - 2024</span>
-                    <h3 class="timeline-role-title">Class Representative</h3>
-                    <span class="timeline-org">Module III Science Stream</span>
-                    <p>Liaison between lecturers and students, ensuring smooth communication and class management.</p>
+                    <h3 class="timeline-role-title">Deputy Co-curricular Secretary</h3>
+                    <span class="timeline-org">Student Representative Council</span>
                 </div>
+
+                <div class="timeline-item" style="border-left-color: var(--accent-color);">
+                    <span class="timeline-date">2023 - 2024</span>
+                    <h3 class="timeline-role-title">Committee Member</h3>
+                    <span class="timeline-org">Pendidikan Islam</span>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: var(--accent-color);">
+                    <span class="timeline-date">2023 - 2024</span>
+                    <h3 class="timeline-role-title">Active Member</h3>
+                    <span class="timeline-org">Makers Club</span>
+                </div>
+
             </div>
         </div>
     </div>
@@ -569,12 +550,35 @@
             </div>
             <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: #333;">High School Roles</h2>
             <div class="timeline-container">
-                <div class="timeline-item">
+                
+                <div class="timeline-item" style="border-left-color: #333;">
                     <span class="timeline-date">2023</span>
                     <h3 class="timeline-role-title">President</h3>
-                    <span class="timeline-org">English Language Club</span>
-                    <p>Led weekly activities and organized the school-wide English Week program.</p>
+                    <span class="timeline-org">Kelab Catur (Chess Club)</span>
                 </div>
+
+                <div class="timeline-item" style="border-left-color: #333;">
+                    <span class="timeline-date">2023</span>
+                    <h3 class="timeline-role-title">Treasurer</h3>
+                    <span class="timeline-org">Peer Mentor (Pembimbing Rakan Sebaya)</span>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: #333;">
+                    <span class="timeline-date">2023</span>
+                    <h3 class="timeline-role-title">Treasurer</h3>
+                    <span class="timeline-org">Bulan Sabit Merah Malaysia (BSMM)</span>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: #333;">
+                    <span class="timeline-date">2019 - 2023</span>
+                    <h3 class="timeline-role-title">Active Member</h3>
+                    <span class="timeline-org">Extracurricular Clubs</span>
+                    <ul class="role-list">
+                        <li>Kelab Doktor Muda</li>
+                        <li>Kelab Pelancongan</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>
@@ -587,12 +591,29 @@
             </div>
             <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center;">Other Organizations</h2>
             <div class="timeline-container">
-                <div class="timeline-item">
-                    <span class="timeline-date">2024</span>
-                    <h3 class="timeline-role-title">Event Volunteer</h3>
-                    <span class="timeline-org">Labuan International Sea Challenge</span>
-                    <p>Assisted in logistics and crowd control for international participants.</p>
+                
+                <div class="timeline-item" style="border-left-color: #999;">
+                    <span class="timeline-date">2025</span>
+                    <h3 class="timeline-role-title">Committee Member (Photography & Reporting)</h3>
+                    <span class="timeline-org">Persatuan Lompat Tali Labuan</span>
                 </div>
+
+                <div class="timeline-item" style="border-left-color: #999;">
+                    <span class="timeline-date">2025</span>
+                    <h3 class="timeline-role-title">Committee Member (Photography & Reporting)</h3>
+                    <span class="timeline-org">Sukan Para Renang Wilayah Persekutuan Labuan (SUPRA)</span>
+                </div>
+
+                <div class="timeline-item" style="border-left-color: #999;">
+                    <span class="timeline-date">2024 - 2025</span>
+                    <h3 class="timeline-role-title">Active Member</h3>
+                    <span class="timeline-org">Arts & Culture</span>
+                    <ul class="role-list">
+                        <li>Mahligai Anak Seni (MAS)</li>
+                        <li>Anak Seni Wilayah Persekutuan Labuan</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div>
