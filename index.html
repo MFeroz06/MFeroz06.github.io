@@ -115,6 +115,29 @@
         .section { padding: 100px 5% 60px; max-width: 1100px; margin: 0 auto; }
         .section-title { font-size: 1.8rem; margin-bottom: 3.5rem; text-align: center; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); }
 
+        /* --- ABOUT ME SECTION (NEW) --- */
+        .about-grid {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .about-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+        .about-item:last-child { margin-bottom: 0; }
+        .about-icon {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            min-width: 30px;
+            text-align: center;
+        }
+
         /* Skills, Education, Projects Grids */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .skill-category { background: var(--white); padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
@@ -153,15 +176,7 @@
         .hub-card:hover .hub-logo-img { transform: scale(1.1); }
         .hub-icon { font-size: 2.5rem; margin-bottom: 20px; } 
         .hub-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); line-height: 1.4; }
-
-        /* DISABLED CARD STYLE */
-        .hub-card.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            pointer-events: none;
-            filter: grayscale(100%);
-            background: #f0f0f0;
-        }
+        .hub-card.disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; filter: grayscale(100%); background: #f0f0f0; }
 
         /* --- DETAIL CARD STYLES --- */
         .achieve-card { 
@@ -183,24 +198,103 @@
         .achieve-content p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
         .achieve-cat-header { font-size: 1.5rem; color: var(--text-main); margin-top: 60px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
 
-        /* ACTIVITY LIST STYLES */
         .activity-list-container { margin-top: 15px; }
-        .activity-list-item { 
-            padding: 12px 0; 
-            border-bottom: 1px solid #f0f0f0; 
-            color: var(--text-main); 
-            font-size: 0.95rem; 
-            display: flex; 
-            align-items: flex-start; 
-        }
+        .activity-list-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; color: var(--text-main); font-size: 0.95rem; display: flex; align-items: flex-start; }
         .activity-list-item:last-child { border-bottom: none; }
-        .activity-list-item::before { 
-            content: '•'; 
-            color: var(--utm-maroon); 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-            margin-right: 12px; 
-            line-height: 1.2; 
+        .activity-list-item::before { content: '•'; color: var(--utm-maroon); font-weight: bold; font-size: 1.2rem; margin-right: 12px; line-height: 1.2; }
+
+        /* --- POSITIONS (NEW STYLES) --- */
+        
+        /* 1. The Menu (Wide Bars) */
+        .position-menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .position-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 25px 30px;
+            background: var(--white);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 8px solid transparent;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+        
+        /* Different borders for visual distinction */
+        .pos-utm { border-left-color: var(--utm-maroon); }
+        .pos-kml { border-left-color: var(--accent-color); }
+        .pos-smk { border-left-color: #333; }
+        .pos-other { border-left-color: #999; }
+
+        .position-nav-item:hover { transform: translateX(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        
+        .pos-icon { font-size: 2rem; margin-right: 25px; }
+        .pos-logo-img { height: 50px; width: auto; object-fit: contain; margin-right: 25px; }
+        .pos-title { font-size: 1.3rem; font-weight: 700; color: var(--text-main); }
+        .pos-arrow { margin-left: auto; color: var(--text-light); font-size: 1.5rem; }
+
+        /* 2. The Timeline Content (For Details Pages) */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Vertical Line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #f0f0f0;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-left: 50px; /* Space for the line */
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        /* The Dot on the line */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            left: -58px; /* Position on the line */
+            top: 35px;
+            background: white;
+            border: 4px solid var(--utm-maroon);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-role-title { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 5px; }
+        .timeline-org { font-size: 0.95rem; font-weight: 600; color: var(--text-light); margin-bottom: 10px; display: block; }
+        .timeline-date { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            background: #f5f5f5; 
+            border-radius: 50px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            color: #555; 
+            margin-bottom: 15px; 
         }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
@@ -210,6 +304,9 @@
             .btn-group { flex-direction: column; width: 100%; padding: 0 20px; }
             .hero h1 { font-size: 2.4rem; }
             .hub-card { width: 100%; }
+            .timeline-container::after { left: 10px; }
+            .timeline-item { margin-left: 35px; padding: 20px; }
+            .timeline-item::before { left: -43px; }
         }
     </style>
 </head>
@@ -248,9 +345,36 @@
                 <a href="#education" class="btn outline-btn">Education</a>
                 <button onclick="showPage('course-year-hub')" class="btn outline-btn">📚 Courses</button>
                 <button onclick="showPage('activities-hub')" class="btn outline-btn">📸 Activities</button>
+                <button onclick="showPage('positions-hub')" class="btn outline-btn">💼 Positions</button>
                 <button onclick="showPage('achievements-hub')" class="btn achieve-btn">🏆 Achievements</button>
             </div>
         </header>
+
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <span class="about-icon">🎓</span>
+                    <span>First-year Bachelor of Computer Science (Data Engineering) with Honours student at UTM (Cohort 10)</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-icon">💻</span>
+                    <span>Interested in coding and continuously exploring new technical skills</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-icon">📚</span>
+                    <span>Currently learning C++, with plans to explore other programming languages</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-icon">⚽</span>
+                    <span>Enjoys indoor/outdoor sports and video games during free time</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-icon">🚀</span>
+                    <span>Aspires to become a Data Engineer and work at my dream company</span>
+                </div>
+            </div>
+        </section>
 
         <section id="skills" class="section">
             <h2 class="section-title" data-aos="fade-up">Competencies & Skills</h2>
@@ -360,6 +484,117 @@
         </section>
 
         <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
+    </div>
+
+    <div id="positions-hub" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('home')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Home
+            </div>
+
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">💼 Leadership & Roles</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">My experience in leadership, committees, and organizational roles.</p>
+
+            <div class="position-menu-container">
+                <div class="position-nav-item pos-utm" onclick="showPage('pos-utm')">
+                    <img src="https://raw.githubusercontent.com/MFeroz06/MFeroz06.github.io/refs/heads/main/LOGO%20UTM.png" alt="UTM" class="pos-logo-img">
+                    <span class="pos-title">Universiti Teknologi Malaysia</span>
+                    <span class="pos-arrow">→</span>
+                </div>
+
+                <div class="position-nav-item pos-kml" onclick="showPage('pos-kml')">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/logokml.png?raw=true" alt="KML" class="pos-logo-img">
+                    <span class="pos-title">Kolej Matrikulasi Labuan</span>
+                    <span class="pos-arrow">→</span>
+                </div>
+
+                <div class="position-nav-item pos-smk" onclick="showPage('pos-smk')">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/logosmkl.jpeg?raw=true" alt="SMK" class="pos-logo-img">
+                    <span class="pos-title">SMK Labuan</span>
+                    <span class="pos-arrow">→</span>
+                </div>
+
+                <div class="position-nav-item pos-other" onclick="showPage('pos-other')">
+                    <span class="pos-icon">🌐</span>
+                    <span class="pos-title">Other Organizations</span>
+                    <span class="pos-arrow">→</span>
+                </div>
+            </div>
+        </div>
+        <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
+    </div>
+
+    <div id="pos-utm" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('positions-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Positions
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--utm-maroon);">UTM Roles</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" style="border-left-color: var(--utm-maroon);">
+                    <span class="timeline-date">2025 - Present</span>
+                    <h3 class="timeline-role-title">Committee Member</h3>
+                    <span class="timeline-org">Student Residential College Committee (JKM)</span>
+                    <p>Responsible for welfare and activity planning for students in Kolej Tun Razak.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pos-kml" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('positions-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Positions
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--accent-color);">Matriculation Roles</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="timeline-date">2023 - 2024</span>
+                    <h3 class="timeline-role-title">Class Representative</h3>
+                    <span class="timeline-org">Module III Science Stream</span>
+                    <p>Liaison between lecturers and students, ensuring smooth communication and class management.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pos-smk" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('positions-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Positions
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: #333;">High School Roles</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="timeline-date">2023</span>
+                    <h3 class="timeline-role-title">President</h3>
+                    <span class="timeline-org">English Language Club</span>
+                    <p>Led weekly activities and organized the school-wide English Week program.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pos-other" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('positions-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Positions
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center;">Other Organizations</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="timeline-date">2024</span>
+                    <h3 class="timeline-role-title">Event Volunteer</h3>
+                    <span class="timeline-org">Labuan International Sea Challenge</span>
+                    <p>Assisted in logistics and crowd control for international participants.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="course-year-hub" class="page-view">
