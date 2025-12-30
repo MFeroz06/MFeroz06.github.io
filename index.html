@@ -139,7 +139,7 @@
         .card { background: var(--white); padding: 40px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.02); transition: 0.4s; height: 100%; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); border-color: var(--accent-color); }
 
-        /* --- HUB STYLES (Shared by Achievements and Activities) --- */
+        /* --- ACHIEVEMENTS HUB STYLES --- */
         .hub-grid { 
             display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; 
         }
@@ -154,12 +154,11 @@
         .hub-icon { font-size: 2.5rem; margin-bottom: 20px; } 
         .hub-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); line-height: 1.4; }
 
-        /* --- DETAIL CARD STYLES --- */
+        /* --- ACHIEVEMENT & ACTIVITY CARD STYLES --- */
         .achieve-card { 
             background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
             margin-bottom: 40px; border-left: 5px solid #FFD700;
         }
-        /* Default border color for Activities (Blue/Green/etc can be used, using generic grey for now) */
         .activity-card-style { border-left-color: #666; } 
 
         .achieve-img-wrapper { height: 280px; overflow: hidden; position: relative; }
@@ -174,6 +173,26 @@
         .achieve-sub-title { font-size: 1.4rem; font-weight: 600; color: var(--text-light); margin-bottom: 15px; }
         .achieve-content p { color: var(--text-light); font-size: 1rem; line-height: 1.6; }
         .achieve-cat-header { font-size: 1.5rem; color: var(--text-main); margin-top: 60px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+        /* ACTIVITY LIST STYLES */
+        .activity-list-container { margin-top: 15px; }
+        .activity-list-item { 
+            padding: 12px 0; 
+            border-bottom: 1px solid #f0f0f0; 
+            color: var(--text-main); 
+            font-size: 0.95rem; 
+            display: flex; 
+            align-items: flex-start; 
+        }
+        .activity-list-item:last-child { border-bottom: none; }
+        .activity-list-item::before { 
+            content: '•'; 
+            color: var(--utm-maroon); 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            margin-right: 12px; 
+            line-height: 1.2; 
+        }
 
         footer { text-align: center; padding: 80px 20px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid rgba(0,0,0,0.03); }
 
@@ -374,14 +393,146 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                 Back to Selection
             </div>
+            
             <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--utm-maroon);">UTM Activities</h2>
+
+            <h3 class="achieve-cat-header">International Level</h3>
+            
             <div class="achieve-card activity-card-style" style="border-left-color: var(--utm-maroon);">
                 <div class="achieve-content">
-                    <span class="achieve-date">2024 - Present</span>
-                    <h3 class="achieve-sub-title">Active Student Participation</h3>
-                    <p>Participating in various faculty events and technical workshops to enhance data engineering skills.</p>
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Facilitator</h3>
+                    <p>Japan Edutourism Exchange Program Shizuoka 2025</p>
                 </div>
             </div>
+
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--utm-maroon);">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Facilitator</h3>
+                    <p>Japan Edutourism Exchange Program Nagasaki 2025</p>
+                </div>
+            </div>
+
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Participant</h3>
+                    <p>Asean Quantum Summit 2025</p>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">National Level</h3>
+            
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Participant</h3>
+                    <p>Festival of Ideas 2025</p>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">University Level</h3>
+
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--utm-maroon);">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Person in Charge (PIC)</h3>
+                    <p>Sukan Sains Komputer 2025 (SUSKOM'25)</p>
+                </div>
+            </div>
+
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--accent-color);">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Performer</h3>
+                    <p>Majlis Citra Gemilang JTNCP 2025</p>
+                </div>
+            </div>
+
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Active Participation</h3>
+                    <div class="activity-list-container">
+                        <div class="activity-list-item">Karnival Sukan Minggu Mesra Mahasiswa 2025</div>
+                        <div class="activity-list-item">Sambutan Hari Akademia Universiti Teknologi Malaysia 2025</div>
+                        <div class="activity-list-item">Program Openday UTMDigital Day 2025</div>
+                        <div class="activity-list-item">Program "First Year Campus Adaptation, Resilience and Environment (FYCARE)" 2025</div>
+                        <div class="activity-list-item">UTM Games 2025 for ULTRAS</div>
+                        <div class="activity-list-item">UTM Games 2025 for Mobile Legends Bang Bang</div>
+                        <div class="activity-list-item">Student Enhancement SECP (Data Engineering) Program 2025</div>
+                        <div class="activity-list-item">Malam Kebudayaan Minggu Mesra Mahasiswa 2025</div>
+                        <div class="activity-list-item">UNBOCS'2025</div>
+                        <div class="activity-list-item">Townhall Pemilihan Majlis Perwakilan Pelajar (PMPP) Sesi 25/26</div>
+                        <div class="activity-list-item">Kepentingan Penjagaan Kesihatan Mental</div>
+                        <div class="activity-list-item">Ceramah Situasi Semasa Denggi Serta Langkah-langkah Pencegahan</div>
+                        <div class="activity-list-item">UTMD InsightX 3 "Information System"</div>
+                        <div class="activity-list-item">UTMD InsightX 4 "Digital Infra & Data Engineering"</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">Faculty Level</h3>
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Industry Engagement</h3>
+                    <div class="activity-list-container">
+                        <div class="activity-list-item">Participant - Industry Talk 1 (PPG)</div>
+                        <div class="activity-list-item">Participant - Industry Talk 2 (Serunai)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">College Level (Kolej Tun Razak)</h3>
+            
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--utm-maroon);">
+                <div class="achieve-content">
+                    <span class="achieve-date">Upcoming 2026</span>
+                    <h3 class="achieve-sub-title">Head of Sponsorship Unit</h3>
+                    <p>Program Majlis Anugerah Tun Razak 2026 (MATRA'26)</p>
+                </div>
+            </div>
+
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">College Participation</h3>
+                    <div class="activity-list-container">
+                        <div class="activity-list-item">Annual Grand SENIMAS 2025</div>
+                        <div class="activity-list-item">Athlete Gathering Kolej Tun Razak</div>
+                        <div class="activity-list-item">Semarak Subuh</div>
+                        <div class="activity-list-item">Modul Adab Siri 1 - Adab Menuntut Ilmu</div>
+                        <div class="activity-list-item">Modul Adab Siri 2</div>
+                        <div class="activity-list-item">Modul Adab Siri 3 - Adab Terhadap Pensyarah</div>
+                        <div class="activity-list-item">Daftar Kelab Tun Razak 2025/2026 (DAKTAR)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="achieve-cat-header">Club & Community Level</h3>
+            
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--accent-color);">
+                <div class="achieve-content">
+                    <span class="achieve-date">2024</span>
+                    <h3 class="achieve-sub-title">Volunteer</h3>
+                    <p>Sempena Maulidul Rasul Peringkat Taman Sri Pulai & Jalan Kabung 1446/2024</p>
+                </div>
+            </div>
+
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">2025</span>
+                    <h3 class="achieve-sub-title">Club Participation</h3>
+                    <div class="activity-list-container">
+                        <div class="activity-list-item">Rehlah Harmoni Circle 2025</div>
+                        <div class="activity-list-item">Talent New Gen Daksina 2025</div>
+                        <div class="activity-list-item">First Meeting SRC 25/26</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
