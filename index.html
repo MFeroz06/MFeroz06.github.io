@@ -139,7 +139,7 @@
         .card { background: var(--white); padding: 40px; border-radius: 25px; border: 1px solid rgba(0,0,0,0.02); transition: 0.4s; height: 100%; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.06); border-color: var(--accent-color); }
 
-        /* --- ACHIEVEMENTS HUB STYLES --- */
+        /* --- HUB STYLES (Shared by Achievements and Activities) --- */
         .hub-grid { 
             display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; 
         }
@@ -154,11 +154,14 @@
         .hub-icon { font-size: 2.5rem; margin-bottom: 20px; } 
         .hub-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); line-height: 1.4; }
 
-        /* --- ACHIEVEMENT DETAIL CARDS --- */
+        /* --- DETAIL CARD STYLES --- */
         .achieve-card { 
             background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
             margin-bottom: 40px; border-left: 5px solid #FFD700;
         }
+        /* Default border color for Activities (Blue/Green/etc can be used, using generic grey for now) */
+        .activity-card-style { border-left-color: #666; } 
+
         .achieve-img-wrapper { height: 280px; overflow: hidden; position: relative; }
         .achieve-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .achieve-card:hover .achieve-img { transform: scale(1.05); }
@@ -215,6 +218,7 @@
                 <a href="#mini-projects" class="btn explore-btn">Projects</a>
                 <a href="#skills" class="btn outline-btn">Skills</a>
                 <a href="#education" class="btn outline-btn">Education</a>
+                <button onclick="showPage('activities-hub')" class="btn outline-btn">📸 Activities</button>
                 <button onclick="showPage('achievements-hub')" class="btn achieve-btn">🏆 Achievements</button>
             </div>
         </header>
@@ -329,6 +333,118 @@
         <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
     </div>
 
+    <div id="activities-hub" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('home')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Home
+            </div>
+
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">📸 Activities & Involvement</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">Select an institution to view my extracurricular activities.</p>
+
+            <div class="hub-grid">
+                <div class="hub-card" onclick="showPage('activity-utm')">
+                    <img src="https://raw.githubusercontent.com/MFeroz06/MFeroz06.github.io/refs/heads/main/LOGO%20UTM.png" alt="UTM Logo" class="hub-logo-img">
+                    <div class="hub-title">Universiti Teknologi Malaysia</div>
+                </div>
+
+                <div class="hub-card" onclick="showPage('activity-kml')">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/logokml.png?raw=true" alt="KML Logo" class="hub-logo-img">
+                    <div class="hub-title">Kolej Matrikulasi Labuan</div>
+                </div>
+
+                <div class="hub-card" onclick="showPage('activity-smk')">
+                    <img src="https://github.com/MFeroz06/MFeroz06.github.io/blob/main/images/logosmkl.jpeg?raw=true" alt="SMK Logo" class="hub-logo-img">
+                    <div class="hub-title">SMK Labuan</div>
+                </div>
+
+                <div class="hub-card" onclick="showPage('activity-other')">
+                    <div class="hub-icon">🤝</div>
+                    <div class="hub-title">Volunteering & Others</div>
+                </div>
+            </div>
+        </div>
+        <footer><p>&copy; 2025 Muhammad Fairuz bin Herman • Universiti Teknologi Malaysia</p></footer>
+    </div>
+
+    <div id="activity-utm" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('activities-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Selection
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--utm-maroon);">UTM Activities</h2>
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--utm-maroon);">
+                <div class="achieve-content">
+                    <span class="achieve-date">2024 - Present</span>
+                    <h3 class="achieve-sub-title">Active Student Participation</h3>
+                    <p>Participating in various faculty events and technical workshops to enhance data engineering skills.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="activity-kml" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('activities-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Selection
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--accent-color);">Matriculation Activities</h2>
+            
+            <div class="achieve-card activity-card-style" style="border-left-color: var(--accent-color);">
+                <div class="achieve-img-wrapper">
+                    <img src="https://via.placeholder.com/800x600?text=Taekwondo+Activity" alt="Taekwondo" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">2023 - 2024</span>
+                    <h3 class="achieve-sub-title">KML Taekwondo Club</h3>
+                    <p>Active member of the Taekwondo club, participating in training sessions and college demonstrations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="activity-smk" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('activities-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Selection
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: #333;">High School Activities</h2>
+            
+            <div class="achieve-card activity-card-style" style="border-left-color: #333;">
+                <div class="achieve-img-wrapper">
+                    <img src="https://via.placeholder.com/800x600?text=School+Photography" alt="Photography" class="achieve-img">
+                </div>
+                <div class="achieve-content">
+                    <span class="achieve-date">2019 - 2023</span>
+                    <h3 class="achieve-sub-title">School Photographer</h3>
+                    <p>Official school photographer for events, sports days, and assemblies, capturing key moments for the school magazine.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="activity-other" class="page-view">
+        <div class="sub-page-container">
+            <div onclick="showPage('activities-hub')" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                Back to Selection
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; text-align: center;">Other Involvement</h2>
+            <div class="achieve-card activity-card-style">
+                <div class="achieve-content">
+                    <span class="achieve-date">Ongoing</span>
+                    <h3 class="achieve-sub-title">Community Service</h3>
+                    <p>Participation in various local community clean-ups and charity drives.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div id="achievements-hub" class="page-view">
         <div class="sub-page-container">
             <div onclick="showPage('home')" class="back-btn">
@@ -336,8 +452,8 @@
                 Back to Home
             </div>
 
-            <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">🏆 Select Category</h2>
-            <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">Choose a category to view specific achievements.</p>
+            <h2 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center;">🏆 Honours & Awards</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">Select a category to view specific achievements.</p>
 
             <div class="hub-grid">
                 <div class="hub-card" onclick="showPage('achieve-utm')">
@@ -379,10 +495,8 @@
                 </div>
                 <div class="achieve-content">
                     <span class="achieve-date">13 December 2025</span>
-                    
                     <h3 class="achieve-highlight">RUNNER UP</h3>
                     <h4 class="achieve-sub-title">Sumayau 3.0 Competition</h4>
-                    
                     <p>Awarded runner-up in Sumayau 3.0, and served as choreographer and group leader for the dance group performing Tarian Rambai.</p>
                 </div>
             </div>
@@ -600,14 +714,17 @@
             });
 
             setTimeout(() => {
-                 document.getElementById(viewId === 'home' ? 'home-view' : 
-                                       viewId === 'achievements-hub' ? 'achievements-hub' :
-                                       viewId === 'achieve-utm' ? 'achieve-utm' :
-                                       viewId === 'achieve-kml' ? 'achieve-kml' :
-                                       viewId === 'achieve-smk' ? 'achieve-smk' :
-                                       viewId === 'achieve-other' ? 'achieve-other' : 'home-view').classList.add('active');
+                 // Check if ID exists before accessing classList to prevent console errors
+                 const page = document.getElementById(viewId);
+                 if (page) {
+                     page.classList.add('active');
+                 } else {
+                     // Fallback to home if ID not found (just in case)
+                     document.getElementById('home-view').classList.add('active');
+                 }
                 
-                document.querySelector('.page-view.active').style.opacity = 1;
+                const activePage = document.querySelector('.page-view.active');
+                if(activePage) activePage.style.opacity = 1;
             }, 50);
             window.scrollTo(0,0);
         }
